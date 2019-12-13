@@ -59,7 +59,7 @@ exports.orders = async (req, res) => {
          db.query(`select * from get_all_products_view where Product_Id='${productId}'`, (error, response) => {
             if (response) {
                 var cost = parseFloat(response[0].Price) * parseFloat(value);
-                
+
                 var prod_des = response[0].Product_Description
                 // let a = JSON.parse(Order.Products)
                 a.Price=cost;
@@ -70,7 +70,7 @@ exports.orders = async (req, res) => {
               db.query(`insert into orders(Order_Id,Email,Product_Id,Quantity,Price,Payment_Type) values(?,?,?,?,?,?)`,
 
                 [Order.Order_Id,Order.Email,a.Product_Id,a.Quantity,a.Price,Order.Payment_Type],(err, result1) => {
-             console.log(result1);
+             //console.log(result1);
                         if (result1) {
                            console.log("Inserted in DB");
 
